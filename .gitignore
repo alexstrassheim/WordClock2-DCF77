@@ -27,3 +27,6 @@
 *.exe
 *.out
 *.app
+
+# doc - wordclock_drawing_old
+**/doc/wordclock_drawing_old
