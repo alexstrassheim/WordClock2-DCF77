@@ -10,6 +10,7 @@
 #define DCF_INTERRUPT 12		 // Interrupt number associated with pin
 #define WS2812B_PIN 10
 #define NUM_LEDS 114
+#define LDR_PIN 14
 
 time_t prevDisplay = 0;          // when the digital clock was displayed
 time_t time;
@@ -22,6 +23,8 @@ int testMinutes = 0;
 
 const long oneSecondDelay = 1000;
 long waitUntilRtc = 0;
+long waitUntilLDR = 0;
+boolean autoBrightnessEnabled = true;
 
 void setup(void) {
     Serial.begin(9600);
@@ -75,6 +78,21 @@ void loop(void) {
   recvWithEndMarker();
   showNewData();
   ///
+
+  doLDRLogic();
+}
+
+void doLDRLogic() {
+  if(millis() >= waitUntilLDR && autoBrightnessEnabled) {
+    /* DEBUG_PRINT("doing LDR logic"); */
+    waitUntilLDR = millis();
+    int ldrVal = map(analogRead(LDR_PIN), 0, 1023, 0, 200);
+    /* FastLED.setBrightness(255-ldrVal); */
+    /* FastLED.show(); */
+    DEBUG_PRINT(ldrVal);
+    wclock.setB(ldrVal);
+    waitUntilLDR += oneSecondDelay;
+  }
 }
 
 void recvWithEndMarker() {

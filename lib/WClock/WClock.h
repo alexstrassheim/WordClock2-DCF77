@@ -58,6 +58,7 @@ class WClock {
         void addWordToFrame(const int theword[3], boolean frame[11][11]);
 
         void showTime(int hours, int minutes, int seconds);
+        void setB(int val);
     private:
         CRGB leds[NUM_LEDS];
         boolean frame[11][11];

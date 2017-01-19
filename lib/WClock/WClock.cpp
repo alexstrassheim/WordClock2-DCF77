@@ -68,7 +68,6 @@ void WClock::addWordToFrame(const int theword[3], boolean frame[11][11]) {
 }
 
 void WClock::showTime(int hours, int minutes, int seconds) {
-
     int h = hours;
     int h2 = h;
     int m = minutes;
@@ -291,3 +290,12 @@ void WClock::showTime(int hours, int minutes, int seconds) {
     }
 
 }
+
+void WClock::setB(int val) {
+
+    FastLED.setBrightness(255 - val );
+    FastLED.show();
+
+
+}
+
