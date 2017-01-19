@@ -30,6 +30,6 @@
 
 # doc - wordclock_drawing_old
 **/doc/wordclock_drawing_old
-./.pioenvs
-./.piolibdeps
+**./.pioenvs
+**./.piolibdeps
 
