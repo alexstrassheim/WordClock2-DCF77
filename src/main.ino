@@ -1,3 +1,5 @@
+// https://github.com/wouterdevinck/wordclock
+// https://github.com/bagges/rgb_wordclock
 #include <Arduino.h>
 
 #include <DCF77.h>
