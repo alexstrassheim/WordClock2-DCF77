@@ -38,14 +38,15 @@
 /*
  * Number of used LEDs for WordClock
  */
-#define LED_PIN         12
+#define LED_PIN         10
+#define NUM_LEDS        114
 #define COLOR_ORDER     GRB
 #define CHIPSET         WS2811
-#define NUM_LEDS        114
 #define BRIGHTNESS      88
 
 class WClock {
     public:
+        // WClock(int LED_PIN, int NUM_LEDS);
         void begin(void);
         void drawHeart();
         void drawMatrix();
@@ -76,20 +77,20 @@ class WClock {
         const int w_nach[3] =       {3, 7, 4};
         const int w_uhr[3] =        {9, 8, 3};
 
-        const int w_hours[12][3] = {
-            {5, 0, 3 }, // Ein
-            {5, 7, 4}, // Zwei
-            // {2, 0, 4}, // Drei
-            {6, 0, 4}, // Drei zum Zweiten
-            {2, 4, 4}, // Vier
-            {4, 7 ,4}, // Fünf
-            {7, 4, 5}, // Sechs
-            {8, 0, 6}, // Sieben
-            {7, 7, 4 }, // Acht
-            {9, 3, 4}, // Neun
-            {9, 0, 4}, // Zehn
+        const int w_hours[13][3] = {
+            {5, 2, 3 }, // Ein
+            {5, 2, 4 }, // Eins
+            {5, 0, 4}, // Zwei
+            {6, 2, 4}, // Drei
+            {7, 7, 4}, // Vier
+            {6, 7 ,4}, // Fünf
+            {9, 1, 5}, // Sechs
+            {5, 5, 6}, // Sieben
+            {8, 1, 4 }, // Acht
+            {7, 3, 4}, // Neun
+            {8, 5, 4}, // Zehn
             {7, 0, 3}, // Elf
-            {8, 6, 5} // Zwölf
+            {4, 5, 5}, // Zwölf
         };
         const int w_minutes[10][3] = {
             {0, 7 ,4}, // Fünf
